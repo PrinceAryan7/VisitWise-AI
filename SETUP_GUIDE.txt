@@ -1,0 +1,128 @@
+# VisitWise AI — Step-by-Step Setup Guide
+# ============================================
+# Yeh file padho aur ek-ek step follow karo
+# ============================================
+
+
+## STEP 1 — PostgreSQL Setup
+-----------------------------------------
+
+### 1a. PostgreSQL install karo
+Windows: https://www.postgresql.org/download/windows/
+  - Download kar ke install karo
+  - Installation mein password set karo (yaad rakhna)
+  - Default port 5432 rehne do
+
+### 1b. Database banao
+PostgreSQL install hone ke baad, Command Prompt (CMD) mein:
+
+  psql -U postgres
+
+  (apna password daalo)
+
+  Phir yeh commands:
+  CREATE DATABASE visitwise;
+  \c visitwise
+  \i backend/config/schema.sql
+  \q
+
+  Ya seedha ek command mein:
+  psql -U postgres -c "CREATE DATABASE visitwise;"
+  psql -U postgres -d visitwise -f backend/config/schema.sql
+
+
+## STEP 2 — .env Files Update Karo
+-----------------------------------------
+
+### backend/.env — apna PostgreSQL password daalo:
+  DATABASE_URL=postgresql://postgres:APNA_PASSWORD_YAHAN@localhost:5432/visitwise
+
+  For example agar password "admin123" hai:
+  DATABASE_URL=postgresql://postgres:admin123@localhost:5432/visitwise
+
+### prediction/.env — same password:
+  DATABASE_URL=postgresql://postgres:APNA_PASSWORD_YAHAN@localhost:5432/visitwise
+
+
+## STEP 3 — Backend Chalu Karo (Terminal 1)
+-----------------------------------------
+
+  cd backend
+  npm install
+  npm run dev
+
+  Success message:
+  ✅ PostgreSQL connected successfully!
+  VisitWise AI Backend Running on http://localhost:5000
+
+
+## STEP 4 — Prediction Service Chalu Karo (Terminal 2)
+-----------------------------------------
+
+  cd prediction
+  pip install -r requirements.txt
+  uvicorn main:app --reload --port 8001
+
+  Browser mein check karo: http://localhost:8001
+  Message aana chahiye: "VisitWise AI Prediction Engine chal raha hai!"
+
+
+## STEP 5 — Frontend Chalu Karo (Terminal 3)
+-----------------------------------------
+
+  cd frontend
+  npm install
+  npm start
+
+  Browser automatically khulega: http://localhost:3000
+
+
+## STEP 6 — App Use Karo!
+-----------------------------------------
+
+  1. http://localhost:3000 pe jao
+  2. "Account Banao" tab pe click karo
+  3. Register karo (naam, email, password)
+  4. Dashboard dikhega — Places explore karo
+  5. "Main Yahan Hoon" button dabaake check-in karo
+  6. Checkout pe cost enter karo
+
+
+## TROUBLESHOOTING
+-----------------------------------------
+
+Problem: npm install fail hua
+  → Node.js install hai? → node --version check karo
+  → npm cache saaf karo: npm cache clean --force
+
+Problem: psql command nahi mila
+  → PostgreSQL PATH mein add karo
+  → Windows: C:\Program Files\PostgreSQL\15\bin ko System PATH mein add karo
+
+Problem: Database connection failed
+  → .env file mein password sahi hai?
+  → PostgreSQL service chal raha hai?
+    Windows: Services mein "postgresql" service check karo
+
+Problem: Port already in use
+  → Backend: PORT=5001 npm run dev  (aur frontend .env mein update karo)
+  → Frontend: PORT=3001 npm start
+
+Problem: CORS error browser mein
+  → backend/server.js mein origin check karo
+  → frontend ka port sahi hai?
+
+Problem: Prediction nahi aa rahi
+  → http://localhost:8001/health check karo
+  → Python aur pip installed hai? → python --version
+
+## API TEST KARO (Optional)
+-----------------------------------------
+Browser ya Postman se:
+
+  GET  http://localhost:5000/api/health
+  GET  http://localhost:5000/api/places
+  POST http://localhost:5000/api/auth/register
+       Body: {"name":"Test", "email":"test@t.com", "password":"123456"}
+  POST http://localhost:8001/predict
+       Body: {"place_id": "1"}
