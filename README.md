@@ -1,44 +1,20 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # VisitWise AI - Complete Setup Guide
+=======
+🚀 VisitWise AI
+>>>>>>> 1754d0c678c8c3cf3c555e368f881b7d0664efc3
 
-## Project Structure
-```
-visitwise-ai/
-├── backend/          → Node.js + Express API
-├── frontend/         → React.js UI
-├── prediction/       → Python FastAPI ML Service
-└── README.md
-```
 
-## Prerequisites (Install karo pehle)
-1. Node.js v18+ → https://nodejs.org
-2. Python 3.10+ → https://python.org
-3. PostgreSQL 15 → https://postgresql.org/download
-4. Git → https://git-scm.com
+Smart Crowd & Cost Prediction Platform
 
-## Quick Start (3 terminals mein)
 
-### Terminal 1 - Backend
-```bash
-cd backend
-npm install
-npm run dev
-```
+VisitWise AI helps people plan smarter visits to malls, cafes, gyms, parks, tourist spots, and more — by predicting crowd levels, wait times, best visiting hours, and estimated costs before you even leave home.
 
-### Terminal 2 - Prediction Service
-```bash
-cd prediction
-pip install -r requirements.txt
-uvicorn main:app --reload --port 8001
-```
 
-### Terminal 3 - Frontend
-```bash
-cd frontend
-npm install
-npm start
-```
+📌 Problem
 
+<<<<<<< HEAD
 App opens at: http://localhost:3000
 =======
 🚀 VisitWise AI
@@ -52,6 +28,12 @@ VisitWise AI helps people plan smarter visits to malls, cafes, gyms, parks, tour
 
 People often face:
 
+=======
+
+People often face:
+
+
+>>>>>>> 1754d0c678c8c3cf3c555e368f881b7d0664efc3
 ⏳ Wasted Time – Reaching crowded places with long queues
 
 💸 Unexpected Costs – No idea about spending beforehand
@@ -69,7 +51,10 @@ VisitWise AI solves this using AI-powered predictions:
 
 🔍 Smart search for any location (powered by OpenStreetMap)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1754d0c678c8c3cf3c555e368f881b7d0664efc3
 🤖 Predicts:
 
 Crowd level
@@ -155,6 +140,10 @@ OpenStreetMap + Nominatim (100% Free)
 
 Based on real-world time patterns (168 data points/category)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1754d0c678c8c3cf3c555e368f881b7d0664efc3
 Categories include:
 
 Mall (weekend peaks)
@@ -190,10 +179,19 @@ Google Maps “Popular Times” integration
 
 🙌 Conclusion
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1754d0c678c8c3cf3c555e368f881b7d0664efc3
 VisitWise AI makes travel and daily outings smarter by giving users data-driven insights — saving time, money, and effort.
 
 
 📎 Built With
 
+<<<<<<< HEAD
 React.js • Node.js • Python FastAPI • PostgreSQL • OpenStreetMap
 >>>>>>> ba33f8d52dcb6d0eaaf4a25db02b65ee4d71f307
+=======
+
+React.js • Node.js • Python FastAPI • PostgreSQL • OpenStreetMap
+>>>>>>> 1754d0c678c8c3cf3c555e368f881b7d0664efc3
