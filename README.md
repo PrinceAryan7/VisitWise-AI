@@ -14,8 +14,11 @@ People often face:
 
 
 ⏳ Wasted Time – Reaching crowded places with long queues
+
 💸 Unexpected Costs – No idea about spending beforehand
+
 😤 No Timing Insights – Uncertainty about peak/off-peak hours
+
 📍 Lack of Data – No crowd info for local or tourist places
 
 
